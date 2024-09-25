@@ -967,7 +967,7 @@ wheels = [
 
 [package.optional-dependencies]
 toml = [
-    { name = "tomli", marker = "python_full_version <= '3.11'" },
+    { name = "tomli", marker = "python_full_version == '3.11'" },
 ]
 
 [[package]]
@@ -3689,6 +3689,7 @@ dev = [
 plugins = [
     { name = "eelsdbconverter" },
     { name = "nomad-aitoolkit" },
+    { name = "nomad-material-processing" },
     { name = "nomad-normalizer-plugin-bandstructure" },
     { name = "nomad-normalizer-plugin-dos" },
     { name = "nomad-normalizer-plugin-simulation-workflow" },
@@ -3713,6 +3714,7 @@ requires-dist = [
     { name = "nomad-aitoolkit", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/nomad-aitoolkit.git?rev=b203f8eb28dc4b6771a39d5c5b7ad3d9d8583ac8#b203f8eb28dc4b6771a39d5c5b7ad3d9d8583ac8" },
     { name = "nomad-lab", extras = ["parsing", "infrastructure"], specifier = ">=1.3.4" },
     { name = "nomad-lab", extras = ["parsing", "infrastructure", "dev"], marker = "extra == 'dev'", specifier = ">=1.3.4" },
+    { name = "nomad-material-processing", marker = "extra == 'plugins'" },
     { name = "nomad-normalizer-plugin-bandstructure", marker = "extra == 'plugins'", specifier = ">=1.0" },
     { name = "nomad-normalizer-plugin-dos", marker = "extra == 'plugins'", specifier = ">=1.0" },
     { name = "nomad-normalizer-plugin-simulation-workflow", marker = "extra == 'plugins'", specifier = ">=1.0" },
@@ -3865,6 +3867,18 @@ parsing = [
     { name = "nomad-openbis" },
     { name = "python-magic-bin", marker = "sys_platform == 'win32'" },
     { name = "rdkit" },
+]
+
+[[package]]
+name = "nomad-material-processing"
+version = "1.0.4"
+source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }
+dependencies = [
+    { name = "nomad-lab" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/52/f1/05a50da7299aab6bf72ec3d76edfb923cb00710d7c082cc1653c2cb8b0ea/nomad_material_processing-1.0.4.tar.gz", hash = "sha256:649ff2edd66af6aed25e5d39d2420803a597b70e325c5333e6bae76099c8b654", size = 585561 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/84/dd/9b4cd0c6526f58f90749e25cc20621f43ecea2a10747ee9b0effb23d50d1/nomad_material_processing-1.0.4-py3-none-any.whl", hash = "sha256:b0c1be68facdbb511314255367025f2e3174911b8a64d685650a57495bddd76f", size = 54395 },
 ]
 
 [[package]]
@@ -5534,6 +5548,7 @@ name = "python-magic-bin"
 version = "0.4.14"
 source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }
 wheels = [
+    { url = "https://files.pythonhosted.org/packages/32/2c/bbe8ad26591745da2c4692ea571145fb027c8ee1a0540407aa327684c4ce/python_magic_bin-0.4.14-py2.py3-none-macosx_10_6_intel.whl", hash = "sha256:7b1743b3dbf16601d6eedf4e7c2c9a637901b0faaf24ad4df4d4527e7d8f66a4", size = 334318 },
     { url = "https://files.pythonhosted.org/packages/5a/5d/10b9ac745d9fd2f7151a2ab901e6bb6983dbd70e87c71111f54859d1ca2e/python_magic_bin-0.4.14-py2.py3-none-win32.whl", hash = "sha256:34a788c03adde7608028203e2dbb208f1f62225ad91518787ae26d603ae68892", size = 397784 },
     { url = "https://files.pythonhosted.org/packages/07/c2/094e3d62b906d952537196603a23aec4bcd7c6126bf80eb14e6f9f4be3a2/python_magic_bin-0.4.14-py2.py3-none-win_amd64.whl", hash = "sha256:90be6206ad31071a36065a2fc169c5afb5e0355cbe6030e87641c6c62edc2b69", size = 409299 },
 ]
