@@ -1,29 +1,16 @@
 ![docker image](https://github.com/fabianschoeppach/nomad-UNITOV-image/actions/workflows/docker-publish.yml/badge.svg)
 
-# fabianschoeppach's NOMAD Oasis Distribution
+# NOMAD Oasis Distribution
 
-This is the NOMAD Oasis distribution of fabianschoeppach.
+This is an distribution image of a [NOMAD Oasis](https://nomad-lab.eu/nomad-lab/nomad-oasis.html) provided by [FAIRmat](https://github.com/FAIRmat-NFDI).
 Below are instructions for how to [deploy this distribution](#deploying-the-distribution)
 and how to customize it through [adding plugins](#adding-a-plugin).
-
-> [!IMPORTANT]
-> Depending on the settings of the owner of this repository, the distributed image might
-> be private and require authentication to pull.
-> If you want to keep the image private you need to configure and use a personal access
-> token (PAT) according to the instructions in the GitHub docs [here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-with-a-personal-access-token-classic).
-> If you want to make the image public (recommended), you should make sure that your
-> organization settings allow public packages and make this package public after building it.
-> You can read more about this in the GitHub docs [here](https://docs.github.com/en/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility).
-
-> [!TIP]
-> In order for others to find and learn from your distribution we in FAIRmat would
-> greatly appreciate it if you would add the topic `nomad-distribution` by clicking the
-> ⚙️ next to "About" on the main GitHub page for this repository.
 
 ## Deploying the distribution
 
 Below are instructions for how to deploy this NOMAD Oasis distribution
-[for a new Oasis](#for-a-new-oasis) and [for an existing Oasis](#for-an-existing-oasis)
+[for a new Oasis](#for-a-new-oasis) and [for an existing Oasis](#for-an-existing-oasis).
+For further questions, consult the [official documentation](https://nomad-lab.eu/prod/v1/docs/oasis/install.html).
 
 ### For a new Oasis
 
@@ -54,8 +41,6 @@ sudo chown -R 1000 .volumes
 
 4. Pull the images specified in the `docker-compose.yaml`
 
-Note that the image needs to be public or you need to provide a PAT (see "Important" note above).
-
 ```sh
 docker compose pull
 ```
@@ -74,13 +59,14 @@ curl localhost/nomad-oasis/alive
 
 7. Finally, open [http://localhost/nomad-oasis](http://localhost/nomad-oasis) in your browser to start using your new NOMAD Oasis.
 
-Whenever you update your image you need to shut down NOMAD using
+#### Updating the Oasis
 
+Whenever you want to update your image you first need to shut down NOMAD using `docker compose down`. Afterwards you can pull the updates and simply restart the oasis:
 ```sh
 docker compose down
+docker compose pull
+docker compose up -d
 ```
-
-and then repeat steps 4. and 5. above.
 
 #### NOMAD Remote Tools Hub (NORTH)
 
