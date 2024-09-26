@@ -1,4 +1,4 @@
-![docker image](https://github.com/fabianschoeppach/nomad-UNITOV-image/actions/workflows/docker-publish.yml/badge.svg)
+![docker image](https://github.com/fabianschoeppach/nomad-UNITOV-image/actions/workflows/build-app.yml/badge.svg)
 
 # NOMAD Oasis Distribution
 
